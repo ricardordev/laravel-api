@@ -1,6 +1,6 @@
 ## Getting Started
 
-It's just an example of how to use Laravel as and API Gateway, with Sanctum authentication.
+It's just an example of how to use **Laravel as an API Gateway**, with **Sanctum authentication**.
 
 After cloning, remember to configure your .env file and run: 
 
