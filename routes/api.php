@@ -10,6 +10,7 @@ Route::post('/auth', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     // Resource Controller para /api/transactions
     // GET    /transactions          -> index
+    // GET    /transactions/{hash}   -> show
     // POST   /transactions          -> store
     // PUT    /transactions/{hash}   -> update
     // DELETE /transactions/{hash}   -> destroy
