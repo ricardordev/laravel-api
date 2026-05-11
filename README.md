@@ -118,6 +118,17 @@ Learn: [https://laravel.com/learn](https://laravel.com/learn)
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Results
+
+> [!NOTE]
+> Public running: [https://api.laravel.rdev.eti.br](https://api.laravel.rdev.eti.br)<br>
+> POST https://api.laravel.rdev.eti.br/api/auth<br>
+> POST https://api.laravel.rdev.eti.br/api/transactions<br>
+> GET https://api.laravel.rdev.eti.br/api/transactions<br>
+> GET https://api.laravel.rdev.eti.br/api/transactions/{hash}<br>
+> PUT https://api.laravel.rdev.eti.br/api/transactions/{hash}<br>
+> DELETE https://api.laravel.rdev.eti.br/api/transactions/{hash}<br>
+
 ```bash
 ricardo albrecht - ricardoalbrecht1@gmail.com
 ```
