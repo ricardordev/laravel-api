@@ -42,7 +42,7 @@ php artisan tinker
 
 ## Endpoints example
 
-### POST /api/auth - Creating token
+### POST /api/auth
 
 ```bash
 curl -X POST http://localhost/api/auth \
@@ -57,7 +57,7 @@ Expected result:
 {"token":"1|ra6p2y8u..."}
 ```
 
-### POST /api/transactions - Creating transaction
+### POST /api/transactions
 
 ```bash
 curl -X POST http://localhost/api/transactions \
@@ -69,7 +69,7 @@ curl -X POST http://localhost/api/transactions \
 
 Note: "hash" is generated automatically by the model and used to update and delete transactions.
 
-### GET /api/transactions - Listing transactions
+### GET /api/transactions
 
 ```bash
 curl -X GET http://localhost/api/transactions \
@@ -78,7 +78,7 @@ curl -X GET http://localhost/api/transactions \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 
-### GET /api/transactions/{hash} - Show transaction by hash
+### GET /api/transactions/{hash}
 
 ```bash
 curl -X GET http://localhost/api/transactions/YOUR_HASH_HERE \
@@ -87,7 +87,7 @@ curl -X GET http://localhost/api/transactions/YOUR_HASH_HERE \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 
-### PUT /api/transactions/{hash} - Update transaction
+### PUT /api/transactions/{hash}
 
 ```bash
 curl -X PUT http://localhost/api/transactions/YOUR_HASH_HERE \
@@ -97,7 +97,7 @@ curl -X PUT http://localhost/api/transactions/YOUR_HASH_HERE \
   -d '{"amount": "100", "type": "credit"}'
 ```
 
-### DELETE /api/transactions/{hash} - Delete transaction
+### DELETE /api/transactions/{hash}
 
 ```bash
 curl -X DELETE http://localhost/api/transactions/YOUR_HASH_HERE \
