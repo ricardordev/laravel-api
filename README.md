@@ -109,7 +109,9 @@ curl -X DELETE http://localhost/api/transactions/YOUR_HASH_HERE \
 ## Learning Laravel
 
 Docs: [https://laravel.com/docs](https://laravel.com/docs)
+
 Laracasts: [https://laracasts.com](https://laracasts.com)
+
 Learn: [https://laravel.com/learn](https://laravel.com/learn)
 
 ## License
