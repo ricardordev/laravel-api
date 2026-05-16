@@ -81,7 +81,7 @@ curl -X GET http://localhost/api/transactions \
 ### GET /api/transactions/{hash}
 
 ```bash
-curl -X GET http://localhost/api/transactions/YOUR_HASH_HERE \
+curl -X GET http://localhost/api/transactions/{hash} \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
@@ -90,7 +90,7 @@ curl -X GET http://localhost/api/transactions/YOUR_HASH_HERE \
 ### PUT /api/transactions/{hash}
 
 ```bash
-curl -X PUT http://localhost/api/transactions/YOUR_HASH_HERE \
+curl -X PUT http://localhost/api/transactions/{hash} \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE" \
@@ -100,7 +100,7 @@ curl -X PUT http://localhost/api/transactions/YOUR_HASH_HERE \
 ### DELETE /api/transactions/{hash}
 
 ```bash
-curl -X DELETE http://localhost/api/transactions/YOUR_HASH_HERE \
+curl -X DELETE http://localhost/api/transactions/{hash} \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
