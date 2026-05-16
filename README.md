@@ -109,9 +109,7 @@ curl -X DELETE http://localhost/api/transactions/{hash} \
 ## Learning Laravel
 
 Docs: [https://laravel.com/docs](https://laravel.com/docs)
-
 Laracasts: [https://laracasts.com](https://laracasts.com)
-
 Learn: [https://laravel.com/learn](https://laravel.com/learn)
 
 ## License
@@ -119,6 +117,8 @@ Learn: [https://laravel.com/learn](https://laravel.com/learn)
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Results
+
+Final results on localhost will depend on your setup that will determine your localhost URL. You can get the localhost URL by running `php artisan serve` command and check the URL in the terminal.
 
 > [!NOTE]
 > Public running: [https://laravel.rdev.eti.br/](https://laravel.rdev.eti.br/)<br>
