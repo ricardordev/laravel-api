@@ -1,8 +1,15 @@
+# Laravel API Gateway
+
+A minimal reference implementation of an **API Gateway built with Laravel**, featuring Sanctum token authentication and a full CRUD example with the `Transaction` model.
+
+> [!IMPORTANT]
+> **Disclaimer:** This is example code. For production use, implement proper security measures.
+
+---
+
 ## Getting Started
 
-It's just an example of how to use **Laravel as an API Gateway**, with **Sanctum authentication**.
-
-After cloning, remember to configure your .env file and run: 
+Clone the repository, configure the `.env` file, and run the setup commands:
 
 ```bash
 composer install --no-dev --optimize-autoloader
@@ -10,23 +17,15 @@ php artisan key:generate
 php artisan migrate
 ```
 
-Remember to check "storage" and "bootstrap/cache" folders permissions if needed:
+If needed, fix storage permissions:
 
 ```bash
 sudo chmod -R 775 storage bootstrap/cache
 ```
 
-## Migrations, Models and Controllers
+---
 
-There is an example Migration, Model and Controller called "Transaction". But you can create your own models, migrations and controllers, as you wish with: 
-
-```bash
-php artisan make:migration create_transactions_table
-php artisan make:model ModelName
-php artisan make:controller ControllerName --api
-```
-
-## Creating Test User
+## Creating a Test User
 
 ```bash
 php artisan tinker
@@ -40,7 +39,21 @@ php artisan tinker
 ]);
 ```
 
-## Endpoints example
+---
+
+## Extending the Project
+
+The `Transaction` migration, model, and controller are included as a working example. To add your own resources:
+
+```bash
+php artisan make:migration create_your_table
+php artisan make:model ModelName
+php artisan make:controller ControllerName --api
+```
+
+---
+
+## Endpoints
 
 ### POST /api/auth
 
@@ -48,11 +61,9 @@ php artisan tinker
 curl -X POST http://localhost/api/auth \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
-  -d '{"email": "email@test.com", "password": "12345678", "device_name": "mydevice"}'
+  -d '{"email":"email@test.com","password":"12345678","device_name":"mydevice"}'
 ```
-
-Expected result:
-
+`Expected result:`
 ```json
 {"token":"1|ra6p2y8u..."}
 ```
@@ -106,28 +117,14 @@ curl -X DELETE http://localhost/api/transactions/{hash} \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 
-## Learning Laravel
+---
 
-Docs: [https://laravel.com/docs](https://laravel.com/docs)
-Laracasts: [https://laracasts.com](https://laracasts.com)
-Learn: [https://laravel.com/learn](https://laravel.com/learn)
+## Deployment & Verification
 
-## License
+You can interact with the API through the following execution contexts:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## Results
-
-Final results on localhost will depend on your setup that will determine your localhost URL. You can get the localhost URL by running `php artisan serve` command and check the URL in the terminal.
-
-> [!NOTE]
-> Public running: [https://laravel.rdev.eti.br/](https://laravel.rdev.eti.br/)<br>
-> POST https://laravel.rdev.eti.br/api/auth<br>
-> POST https://laravel.rdev.eti.br/api/transactions<br>
-> GET https://laravel.rdev.eti.br/api/transactions<br>
-> GET https://laravel.rdev.eti.br/api/transactions/{hash}<br>
-> PUT https://laravel.rdev.eti.br/api/transactions/{hash}<br>
-> DELETE https://laravel.rdev.eti.br/api/transactions/{hash}<br>
+* Localhost: run `php artisan serve` and check the URL in your terminal
+* Public running: [https://laravel.rdev.eti.br](https://laravel.rdev.eti.br)
 
 ```bash
 ricardo albrecht - ricardoalbrecht1@gmail.com
