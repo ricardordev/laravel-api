@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Transaction::latest()->paginate(10));
+        return response()->json(
+            $request->user()->transactions()->latest()->paginate(10)
+        );
     }
 
     /**
@@ -34,11 +35,11 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $hash)
+    public function show(Request $request, string $hash)
     {
-        $transaction = Transaction::where('hash', $hash)->firstOrFail();
-
-        return response()->json($transaction);
+        return response()->json(
+            $this->findTransaction($request, $hash)
+        );
     }
 
     /**
@@ -46,19 +47,13 @@ class TransactionController extends Controller
      */
     public function update(Request $request, string $hash)
     {
-        // Buscamos pelo hash único conforme solicitado
-        $transaction = Transaction::where('hash', $hash)->firstOrFail();
+        $transaction = $this->findTransaction($request, $hash);
 
         $validated = $request->validate([
             'amount' => 'numeric|min:0.01',
             'type'   => 'in:debit,credit',
         ]);
 
-        /** 
-         * Análise Estratégica:
-         * Usamos o fill() apenas com os dados validados. 
-         * O hash permanece intocado no objeto.
-         */
         $transaction->update($validated);
 
         return response()->json($transaction);
@@ -67,11 +62,19 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $hash)
+    public function destroy(Request $request, string $hash)
     {
-        $transaction = Transaction::where('hash', $hash)->firstOrFail();
+        $transaction = $this->findTransaction($request, $hash);
         $transaction->delete();
 
         return response()->json(['message' => 'Transaction deleted successfully'], 200);
+    }
+
+    /**
+     * Find a transaction by hash, scoped to the authenticated user.
+     */
+    private function findTransaction(Request $request, string $hash): Transaction
+    {
+        return $request->user()->transactions()->where('hash', $hash)->firstOrFail();
     }
 }

@@ -3,7 +3,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
-// token generator
+// public token generator
 Route::post('/auth', [AuthController::class, 'login']);
 
 // protected routes

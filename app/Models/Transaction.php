@@ -7,11 +7,7 @@ use Illuminate\Support\Str;
 
 class Transaction extends Model
 {
-    protected $fillable = ['amount', 'type'];
-
-    protected $casts = [
-        'amount' => 'decimal:2',
-    ];
+    protected $fillable = ['amount', 'type', 'user_id'];
 
     public function user()
     {
@@ -19,12 +15,20 @@ class Transaction extends Model
     }
 
     /**
-     * Boot Model for internal automation.
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
      */
+    protected function casts(): array
+    {
+        return [
+            'amount' => 'decimal:2',
+        ];
+    }
+
     protected static function booted()
     {
         static::creating(function ($transaction) {
-            // Ensure that the hash is generated internally and is unique.
             $transaction->hash = (string) Str::uuid();
         });
     }

@@ -43,17 +43,13 @@ php artisan tinker
 
 ## Extending the Project
 
-The `Transaction` migration, model, controller, repository and service are included as a working example. To add your own resources:
+The `Transaction` migration, model, and controller are included as a working example. To add your own resources:
 
 ```bash
 php artisan make:migration create_your_table
 php artisan make:model ModelName
 php artisan make:controller ControllerName --api
 
-# custom commands for repository and services
-composer require theanik/laravel-more-command --dev
-php artisan make:repository NameRepository
-php artisan make:service NameService
 ```
 
 ---
@@ -124,13 +120,4 @@ curl -X DELETE http://localhost/api/transactions/{hash} \
 
 ---
 
-## Deployment & Verification
-
-You can interact with the API through the following execution contexts:
-
-* Localhost: run `php artisan serve` and check the URL in your terminal
-* Public running: [https://laravel.rdev.eti.br](https://laravel.rdev.eti.br)
-
-```bash
 ricardo albrecht - ricardoalbrecht1@gmail.com
-```
